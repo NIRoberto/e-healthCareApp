@@ -69,7 +69,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                 <li><a class="dropdown-item" href="#">Clinic Management</a></li>
                 <li>
                   <a class="dropdown-item" href="#"
-                    >Hospital Management Software</a
+                    >Pharmacy  management Platform</a
                   >
                 </li>
                 <!-- <li><hr class="dropdown-divider" /></li> -->
@@ -80,7 +80,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             </li>
           </ul>
             
-            <a href="page/login.jsp" class="btn btn-success py-2 px-4" >
+            <a href="login.jsp" class="btn btn-success py-2 px-4" >
             Login
             <i class="bi bi-box-arrow-right"></i>
           </a>

@@ -12,7 +12,10 @@
         box-sizing: border-box;
       }
       body {
-        background-image: url(https://i.pinimg.com/originals/21/54/cd/2154cd17b398cf202ab361615fe313af.jpg);
+             background-image: url(https://i.pinimg.com/originals/21/54/cd/2154cd17b398cf202ab361615fe313af.jpg);
+             display: flex;
+             justify-content: center;
+             align-items: center;
       }
 
       .loginCard {
@@ -62,20 +65,26 @@
     />
   </head>
   <body>
-    <center>
+      <%-- 
+              String   isLogin = (String) session.getAttribute("email");
+               if(isLogin != null){
+                    response.sendRedirect("pharmacy.jsp");
+                  }            
+        --%>
+        
       <div class="loginCard shadow-sm rounded-md">
         <div class="image">
-            <img src="../img/doc.png" alt="doc"/>
+            <img src="img/doc.png" alt="doctor"/>
         </div>
-          <form action="../page/logVerify.jsp">
+          <form action="logVerify.jsp"  method="post">
           <!-- <h4>Welcome Back!</h4> -->
           <div class="bg-white rounded">
             <div class="">
-              <label for="" class="form-label"> Email: </label>
+              <label for="" class="form-label text-left"> Email: </label>
               <input type="text" name="email" class="form-control" id="email" />
             </div>
             <div class="">
-              <label for="" class="form-label"> Password: </label>
+              <label for="" class="form-label text-left"> Password: </label>
               <input type="password" class="form-control" name="password" />
             </div>
           </div>
@@ -84,6 +93,5 @@
           </div>
         </form>
       </div>
-    </center>
   </body>
 </html>

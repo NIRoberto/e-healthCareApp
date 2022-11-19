@@ -1,3 +1,7 @@
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -26,8 +30,6 @@
             body .content {
                 display: grid;
                 grid-template-columns: 15% 85%;
-
-                grid-template-rows: auto;
             }
 
             body .content .sidebar {
@@ -53,28 +55,13 @@
             body .content ul li:hover {
                 background-color: rgb(20, 110, 68);
             }
-            body .main form {
-                /* grid-template-rows: repeat(2, 50%); */
+            body .main {
+                display: grid;
+                grid-template-columns: repeat(2, 50%);
+                grid-template-rows: repeat(2, 50%);
+                place-items: center;
                 gap: 0rem;
             }
-
-            body .main form {
-                background-color: white;
-                display: grid;
-                place-items: center;
-                grid-template-columns: repeat(2, 50%);
-            }
-            body .main form .form {
-                /* border: 1px solid red; */
-                display: flex;
-                flex-direction: column;
-                /* justify-content: space-around; */
-            }
-            body .main form .form div {
-                display: flex;
-                flex-direction: column;
-            }
-
             body .main div {
                 padding: 2rem;
                 display: flex;
@@ -94,9 +81,19 @@
         </style>
     </head>
     <body>
+        
+   
         <nav
             class="navbar navbar-expand-lg d-flex justify-content-between shadow-sm p-4 navbar-light bg-white"
             >
+              <% 
+                String   isLogin = (String) session.getAttribute("email");
+               if(isLogin == null){
+                    response.sendRedirect("login.jsp");
+                  }            
+            %>
+            
+            
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
                     <img
@@ -106,7 +103,7 @@
                         height="24"
                         class="rounded m-2"
                         />
-                    HopeSolution
+                    HopeSolution 
                 </a>
                 <button
                     class="navbar-toggler"
@@ -130,7 +127,7 @@
                     </ul>
                     <div class="d-flex">
                         <p class="h6 p-2">Admin</p>
-                        <a href="/index.html" class="btn btn-success py-2 px-4">Logout</a>
+                        <a href="logout.jsp" class="btn btn-success py-2 px-4">Logout</a>
                     </div>
                 </div>
             </div>
@@ -152,7 +149,6 @@
                         </li>
                         <li class="sideLink"><a href="addMedicine.jsp"> Add Medicine </a></li>
                         <li class="sideLink"><a href="manageMedecine.jsp"> Manage medicine </a></li>
-
                         <li><a href="">Manufacturer</a></li>
                         <li>
                             <span><i class="bi bi-receipt"></i></span>
@@ -172,55 +168,48 @@
                 </div>
             </div>
             <div class="main">
-                <center>
-                    <h1 class="m-2">Add medicine</h1>
-                </center>
-                <form action="">
-                    <div class="form shadow-md rounded-2">
+                <div class="d-flex shadow-lg rounded-2">
+                    <div>
+                        <span><i class="bi bi-people"></i></span>
+                    </div>
+                    <div class="values">
+                        <span class="h3">12</span>
+                        <span class="tab">Users</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex shadow-lg rounded-2">
                         <div>
-                            <label class="form-label" for=""> Medicine Image</label>
-                            <input type="file" />
+                            <span><i class="bi bi-people"></i></span>
                         </div>
-                        <div>
-                            <label class="form-label" for="">Quantity</label>
-                            <input type="text" class="form-control" />
-                        </div>
-                        <div>
-                            <label class="form-label" for="">MRP</label>
-                            <input type="text" class="form-control" />
-                        </div>
-                        <div>
-                            <label class="form-label" for="">Expired date</label>
-                            <input type="date" class="form-control" />
+                        <div class="values">
+                            <span class="h3">5000</span>
+                            <span class="tab">Medecine</span>
                         </div>
                     </div>
-                    <div class="form">
+                </div>
+                <div>
+                    <div class="d-flex shadow-lg rounded-2">
                         <div>
-                            <label class="form-label" for="">Medicine name</label>
-                            <input type="text" class="form-control" />
+                            <span><i class="bi bi-people"></i></span>
                         </div>
-                        <div>
-                            <label class="form-label" for="">Rate</label>
-                            <input type="text" class="form-control" />
-                        </div>
-                        <div>
-                            <label class="form-label" for="">Batch No</label>
-                            <input type="text" class="form-control" />
-                        </div>
-                        <div>
-                            <label class="form-label" for="">Manufacturer name</label>
-                            <select name="" id="">
-                                <option value="">----</option>
-                                <option value="">m1</option>
-                                <option value="">m2</option>
-                                <option value="">m3</option>
-                            </select>
+                        <div class="values">
+                            <span class="h3">2000</span>
+                            <span class="tab">Invoice</span>
                         </div>
                     </div>
-                </form>
-                <center>
-                    <button class="btn btn-success rounded-2 w-75 mb-4">Submit</button>
-                </center>
+                </div>
+                <div>
+                    <div class="d-flex shadow-lg rounded-2">
+                        <div>
+                            <span><i class="bi bi-people"></i></span>
+                        </div>
+                        <div class="values">
+                            <span class="h3">52</span>
+                            <span class="tab">Reports</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </body>

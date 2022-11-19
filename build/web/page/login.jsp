@@ -67,14 +67,13 @@
         <div class="image">
             <img src="../img/doc.png" alt="doc"/>
         </div>
-          <form action="../page/pharnacy/index.jsp">
+          <form action="../page/logVerify.jsp">
           <!-- <h4>Welcome Back!</h4> -->
           <div class="bg-white rounded">
             <div class="">
               <label for="" class="form-label"> Email: </label>
               <input type="text" name="email" class="form-control" id="email" />
             </div>
-
             <div class="">
               <label for="" class="form-label"> Password: </label>
               <input type="password" class="form-control" name="password" />

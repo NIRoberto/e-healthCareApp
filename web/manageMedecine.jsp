@@ -26,6 +26,8 @@
       body .content {
         display: grid;
         grid-template-columns: 15% 85%;
+
+        grid-template-rows: auto;
       }
 
       body .content .sidebar {
@@ -51,13 +53,28 @@
       body .content ul li:hover {
         background-color: rgb(20, 110, 68);
       }
-      body .main {
-        display: grid;
-        grid-template-columns: repeat(2, 50%);
-        grid-template-rows: repeat(2, 50%);
-        place-items: center;
+      body .main form {
+        /* grid-template-rows: repeat(2, 50%); */
         gap: 0rem;
       }
+
+      body .main form {
+        background-color: white;
+        display: grid;
+        place-items: center;
+        grid-template-columns: repeat(2, 50%);
+      }
+      body .main form .form {
+        /* border: 1px solid red; */
+        display: flex;
+        flex-direction: column;
+        /* justify-content: space-around; */
+      }
+      body .main form .form div {
+        display: flex;
+        flex-direction: column;
+      }
+
       body .main div {
         padding: 2rem;
         display: flex;
@@ -77,6 +94,15 @@
     </style>
   </head>
   <body>
+      
+<%  
+       String isLogin  =  (String) session.getAttribute("email");
+       if(isLogin == null){
+       response.sendRedirect("");
+    }
+
+%>
+
     <nav
       class="navbar navbar-expand-lg d-flex justify-content-between shadow-sm p-4 navbar-light bg-white"
     >
@@ -133,12 +159,10 @@
               <span>Medicine</span>
               <span><i class="bi bi-chevron-down"></i></span>
             </li>
-            <li class="sideLink">
-              <a href="/html/pharmacy/addm.html"> Add Medicine </a>
-            </li>
-            <li class="sideLink">
-              <a href="/html/pharmacy/manage.html"> Manage medicine </a>
-            </li>
+            
+            <li class="sideLink"><a href="addMedicine.jsp"> Add Medicine </a></li>
+            <li class="sideLink"><a href="manageMedecine.jsp"> Manage medicine </a></li>
+
             <li><a href="">Manufacturer</a></li>
             <li>
               <span><i class="bi bi-receipt"></i></span>
@@ -157,50 +181,91 @@
           </ul>
         </div>
       </div>
-      <div class="main">
-        <div class="d-flex shadow-lg rounded-2">
-          <div>
-            <span><i class="bi bi-people"></i></span>
-          </div>
-          <div class="values">
-            <span class="h3">12</span>
-            <span class="tab">Users</span>
-          </div>
-        </div>
-        <div>
-          <div class="d-flex shadow-lg rounded-2">
-            <div>
-              <span><i class="bi bi-people"></i></span>
-            </div>
-            <div class="values">
-              <span class="h3">5000</span>
-              <span class="tab">Medecine</span>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div class="d-flex shadow-lg rounded-2">
-            <div>
-              <span><i class="bi bi-people"></i></span>
-            </div>
-            <div class="values">
-              <span class="h3">2000</span>
-              <span class="tab">Invoice</span>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div class="d-flex shadow-lg rounded-2">
-            <div>
-              <span><i class="bi bi-people"></i></span>
-            </div>
-            <div class="values">
-              <span class="h3">52</span>
-              <span class="tab">Reports</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      <table class="table  table-bordered">
+        <thead class="">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Image</th>
+            <th scope="col">Name</th>
+            <th scope="col">Rate</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Manufacturer</th>
+            <th scope="col">Category</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>
+              <img
+                class="h-25 w-25"
+                src="https://i0.wp.com/www.recsmedix.com/wp-content/uploads/2018/03/c247-Image-1.jpg?fit=850%2C850&ssl=1"
+                alt="C 24/7"
+              />
+            </td>
+            <td>C24/7</td>
+            <td>20</td>
+            <td>200</td>
+            <td>American</td>
+            <td>food supplement</td>
+            <td class="d-flex justify-space-around">
+              <span class="m-1 btn-success"
+                ><i class="bi bi-pencil-square"></i
+              ></span>
+              <span class="text-danger m-1"
+                ><i class="bi bi-trash-fill"></i
+              ></span>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">1</th>
+            <td>
+              <img
+                class="h-25 w-25"
+                src="https://i0.wp.com/www.recsmedix.com/wp-content/uploads/2018/03/c247-Image-1.jpg?fit=850%2C850&ssl=1"
+                alt="C 24/7"
+              />
+            </td>
+            <td>C24/7</td>
+            <td>20</td>
+            <td>200</td>
+            <td>American</td>
+            <td>food supplement</td>
+            <td class="d-flex justify-space-around">
+              <span class="m-1 btn-success"
+                ><i class="bi bi-pencil-square"></i
+              ></span>
+              <span class="text-danger m-1"
+                ><i class="bi bi-trash-fill"></i
+              ></span>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">1</th>
+            <td>
+              <img
+                class="h-25 w-25"
+                src="https://i0.wp.com/www.recsmedix.com/wp-content/uploads/2018/03/c247-Image-1.jpg?fit=850%2C850&ssl=1"
+                alt="C 24/7"
+              />
+            </td>
+            <td>C24/7</td>
+            <td>20</td>
+            <td>200</td>
+            <td>American</td>
+            <td>food supplement</td>
+            <td class="d-flex justify-space-around">
+              <span class="m-1 btn-success"
+                ><i class="bi bi-pencil-square"></i
+              ></span>
+              <span class="text-danger m-1"
+                ><i class="bi bi-trash-fill"></i
+              ></span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </body>
 </html>
